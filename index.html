@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP: PHP 8.5 Release Announcement</title>
+    <meta name="description"
+        content="PHP 8.5 is a major update of the PHP language. New URI extension, modify properties while cloning, the Pipe operator, and more.">
+    <link rel="icon" href="https://www.php.net/favicon.svg?v=2" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="php-logo-white.svg" alt="PHP Logo" class="logo-img">
+
+                </div>
+                <div class="language-selector">
+                    <select id="languageSelect" class="language-select">
+                        <option value="en">English</option>
+                        <option value="fr">Français</option>
+                        <option value="ru">Русский</option>
+                        <option value="pt-br">Português (BR)</option>
+                        <option value="nl">Nederlands</option>
+                        <option value="es">Español</option>
+                        <option value="tr">Türkçe</option>
+                        <option value="uk">Українська</option>
+                        <option value="zh-cn">简体中文</option>
+                        <option value="ja">日本語</option>
+                    </select>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <img src="logo_php8_5.svg" alt="PHP Logo" class="hero-img">
+                    <h1 class="hero-title">Released!
+                    </h1>
+                    <p class="hero-subtitle">A major update to the PHP language</p>
+                    <p class="hero-description">New URI extension, modify properties while cloning, the Pipe operator,
+                        and more.</p>
+                    <a href="https://www.php.net/downloads.php" class="cta-button">Upgrade now</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">What's new in PHP 8.5</h2>
+
+                <article class="feature" id="url_parsing_api">
+                    <div class="feature-header">
+                        <h3 class="feature-title">Add RFC 3986 and WHATWG URL compliant API</h3>
+                        <a href="https://wiki.php.net/rfc/url_parsing_api" class="rfc-link" target="_blank"
+                            rel="noopener">
+                            RFC
+                            <svg class="external-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15,3 21,3 21,9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="code-comparison">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">PHP &lt; 8.5</span>
+                                <button class="copy-btn" data-code="php-old-1">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre><code id="php-old-1">$components = parse_url("https://php.net/releases/8.5/en.php");
+
+var_dump($components['host']);
+// string(7) "php.net"</code></pre>
+                        </div>
+
+                        <div class="arrow-container">
+                            <svg class="arrow-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12,5 19,12 12,19"></polyline>
+                            </svg>
+                        </div>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">PHP 8.5</span>
+                                <span class="new-badge">New</span>
+                                <button class="copy-btn" data-code="php-new-1">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre><code id="php-new-1">use Uri\Rfc3986\Uri;
+
+$uri = new Uri("https://php.net/releases/8.5/en.php");
+
+var_dump($uri->getHost());
+// string(7) "php.net"</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="feature-description">
+                        <p>As an always-available part of PHP's standard library the new URI extension provides APIs to
+                            parse and modify URIs and URLs according to the RFC 3986 and the WHATWG URL standards.</p>
+                        <p>The secure and standards-compliant URI parsing is powered by the <a
+                                href="https://uriparser.github.io/" target="_blank" rel="noopener">uriparser</a> (RFC
+                            3986) and <a href="https://lexbor.com/" target="_blank" rel="noopener">Lexbor</a> (WHATWG
+                            URL) libraries.</p>
+                    </div>
+                </article>
+
+                <article class="feature" id="clone_with_v2">
+                    <div class="feature-header">
+                        <h3 class="feature-title">Clone with V2</h3>
+                        <a href="https://wiki.php.net/rfc/clone_with_v2" class="rfc-link" target="_blank"
+                            rel="noopener">
+                            RFC
+                            <svg class="external-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15,3 21,3 21,9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="code-comparison">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">PHP &lt; 8.5</span>
+                                <button class="copy-btn" data-code="php-old-2">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre><code id="php-old-2">final readonly class PhpVersion
+{
+    public function __construct(
+        public string $version = 'PHP 8.4',
+    ) {}
+
+    public function withVersion(string $version): self
+    {
+        $newObject = clone $this;
+        $newObject->version = $version;
+        
+        return $newObject;
+    }
+}
+
+$version = new PhpVersion();
+var_dump($version->version);
+// string(7) "PHP 8.4"
+
+var_dump($version->withVersion('PHP 8.5')->version);
+// Fatal error: Uncaught Error: Cannot modify readonly property PhpVersion::$version</code></pre>
+                        </div>
+
+                        <div class="arrow-container">
+                            <svg class="arrow-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12,5 19,12 12,19"></polyline>
+                            </svg>
+                        </div>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">PHP 8.5</span>
+                                <span class="new-badge">New</span>
+                                <button class="copy-btn" data-code="php-new-2">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre><code id="php-new-2">final readonly class PhpVersion
+{
+    public function __construct(
+        public string $version = 'PHP 8.4',
+    ) {}
+
+    public function withVersion(string $version): self
+    {
+        return clone($this, ['version' => $version]);
+    }
+}
+
+$version = new PhpVersion();
+var_dump($version->version);
+// string(7) "PHP 8.4"
+
+var_dump($version->withVersion('PHP 8.5')->version);
+// string(7) "PHP 8.5"
+
+var_dump($version->version);
+// string(7) "PHP 8.4"</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="feature-description">
+                        <p>It is now possible to update properties during object cloning by passing an associative array
+                            with the updated properties to the clone() function. This enables straight-forward support
+                            of the "with-er" pattern for readonly classes.</p>
+                    </div>
+                </article>
+
+                <article class="feature" id="pipe_operator">
+                    <div class="feature-header">
+                        <h3 class="feature-title">Pipe Operator</h3>
+                        <a href="https://wiki.php.net/rfc/pipe-operator-v3" class="rfc-link" target="_blank"
+                            rel="noopener">
+                            RFC
+                            <svg class="external-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15,3 21,3 21,9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="code-comparison">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">PHP &lt; 8.5</span>
+                                <button class="copy-btn" data-code="php-old-3">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre><code id="php-old-3">$input = 'Some kind of string.';
+
+$output = strtolower(
+    str_replace(['.', '/', '…'], '',
+        str_replace(' ', '-',
+            trim($input)
+        )
+    )
+);
+
+var_dump($output);
+// string(19) "some-kind-of-string"</code></pre>
+                        </div>
+
+                        <div class="arrow-container">
+                            <svg class="arrow-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12,5 19,12 12,19"></polyline>
+                            </svg>
+                        </div>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">PHP 8.5</span>
+                                <span class="new-badge">New</span>
+                                <button class="copy-btn" data-code="php-new-3">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre><code id="php-new-3">$input = ' Some kind of string. ';
+
+$output = $input
+    |> trim(...)
+    |> (fn($string) => str_replace(' ', '-', $string))
+    |> (fn($string) => str_replace(['.', '/', '…'], '', $string))
+    |> strtolower(...);
+
+var_dump($output);
+// string(19) "some-kind-of-string"</code></pre>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="feature" id="nodiscard_attribute">
+                    <div class="feature-header">
+                        <h3 class="feature-title">New #[\NoDiscard] attribute</h3>
+                        <a href="https://wiki.php.net/rfc/marking_return_value_as_important" class="rfc-link"
+                            target="_blank" rel="noopener">
+                            RFC
+                            <svg class="external-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15,3 21,3 21,9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="code-comparison">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">PHP &lt; 8.5</span>
+                                <button class="copy-btn" data-code="php-old-4">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre><code id="php-old-4">function getPhpVersion(): string
+{
+    return 'PHP 8.4';
+}
+
+getPhpVersion();
+// No Errors</code></pre>
+                        </div>
+
+                        <div class="arrow-container">
+                            <svg class="arrow-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12,5 19,12 12,19"></polyline>
+                            </svg>
+                        </div>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">PHP 8.5</span>
+                                <span class="new-badge">New</span>
+                                <button class="copy-btn" data-code="php-new-4">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre><code id="php-new-4">#[\NoDiscard]
+function getPhpVersion(): string
+{
+    return 'PHP 8.5';
+}
+
+getPhpVersion();
+
+// Warning: The return value of function getPhpVersion() should either be used or intentionally ignored by casting it as (void)</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="feature-description">
+                        <p>By adding the #[\NoDiscard] attribute to a function, PHP will check whether the returned
+                            value is consumed and emit a warning if it is not. This allows to improve the safety of APIs
+                            where the returned value is important, but where it is easy to forget using the return value
+                            by accident.</p>
+                        <p>The associated (void) cast can be used to indicate that a value is intentionally unused.</p>
+                    </div>
+                </article>
+
+                <article class="feature" id="first_class_callables">
+                    <div class="feature-header">
+                        <h3 class="feature-title">Closures and First Class Callables in constant expressions</h3>
+                        <div class="rfc-links">
+                            <a href="https://wiki.php.net/rfc/fcc_in_const_expr" class="rfc-link" target="_blank"
+                                rel="noopener">
+                                RFC
+                                <svg class="external-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15,3 21,3 21,9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </a>
+                            <a href="https://wiki.php.net/rfc/closures_in_const_expr" class="rfc-link" target="_blank"
+                                rel="noopener">
+                                RFC
+                                <svg class="external-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15,3 21,3 21,9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="code-comparison">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">PHP &lt; 8.5</span>
+                                <button class="copy-btn" data-code="php-old-5">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre><code id="php-old-5">final class CalculatorTest extends \PHPUnit\Framework\TestCase
+{
+    #[\DataProvider('subtractionProvider')]
+    public function testSubtraction(
+        int $minuend,
+        int $subtrahend,
+        int $result
+    ): void
+    {
+        $this->assertSame(
+            $result,
+            Calculator::subtract($minuend, $subtrahend)
+        );
+    }
+
+    public static function subtractionProvider(): iterable
+    {
+        for ($i = -10; $i <= 10; $i++) {
+            yield [$i, $i, 0, $i];
+            yield [$i, 0, $i];
+            yield [0, $i, -$i];
+        }
+    }
+}</code></pre>
+                        </div>
+
+                        <div class="arrow-container">
+                            <svg class="arrow-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12,5 19,12 12,19"></polyline>
+                            </svg>
+                        </div>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">PHP 8.5</span>
+                                <span class="new-badge">New</span>
+                                <button class="copy-btn" data-code="php-new-5">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre><code id="php-new-5">final class CalculatorTest
+{
+    #[\Test\CaseGenerator(static function(): iterable {
+        for ($i = -10; $i <= 10; $i++) {
+            yield [$i, $i, 0, $i];
+            yield [$i, 0, $i];
+            yield [0, $i, -$i];
+        }
+    })]
+    public function testSubtraction(
+        int $minuend,
+        int $subtrahend,
+        int $result
+    )
+    {
+        \assert(
+            Calculator::subtract($minuend, $subtrahend) === $result
+        );
+    }
+}</code></pre>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="feature" id="curl_improvement">
+                    <div class="feature-header">
+                        <h3 class="feature-title">Persistent cURL share handle improvement</h3>
+                        <div class="rfc-links">
+                            <a href="https://wiki.php.net/rfc/curl_share_persistence" class="rfc-link" target="_blank"
+                                rel="noopener">
+                                RFC
+                                <svg class="external-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15,3 21,3 21,9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </a>
+                            <a href="https://wiki.php.net/rfc/curl_share_persistence_improvement" class="rfc-link"
+                                target="_blank" rel="noopener">
+                                RFC
+                                <svg class="external-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15,3 21,3 21,9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="code-comparison">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">PHP &lt; 8.5</span>
+                                <button class="copy-btn" data-code="php-old-6">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre><code id="php-old-6">$sh = curl_share_init();
+curl_share_setopt($sh, CURLSHOPT_SHARE, CURL_LOCK_DATA_DNS);
+curl_share_setopt($sh, CURLSHOPT_SHARE, CURL_LOCK_DATA_CONNECT);
+
+$ch1 = curl_init('https://php.net/');
+curl_setopt($ch1, CURLOPT_SHARE, $sh);
+curl_exec($ch1);
+
+$ch2 = curl_init('https://thephp.foundation/');
+curl_setopt($ch2, CURLOPT_SHARE, $sh);
+curl_exec($ch2);</code></pre>
+                        </div>
+
+                        <div class="arrow-container">
+                            <svg class="arrow-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12,5 19,12 12,19"></polyline>
+                            </svg>
+                        </div>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">PHP 8.5</span>
+                                <span class="new-badge">New</span>
+                                <button class="copy-btn" data-code="php-new-6">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre><code id="php-new-6">$sh = curl_share_init_persistent([
+    CURL_LOCK_DATA_DNS,
+    CURL_LOCK_DATA_CONNECT
+]);
+
+$ch1 = curl_init('https://php.net/');
+curl_setopt($ch1, CURLOPT_SHARE, $sh);
+curl_exec($ch1);
+
+$ch2 = curl_init('https://thephp.foundation/');
+curl_setopt($ch2, CURLOPT_SHARE, $sh);
+curl_exec($ch2);</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="feature-description">
+                        <p>New classes available: CurlSharePersistentHandle class, curl_multi_get_handles() and
+                            curl_share_init_persistent() functions are available.</p>
+                    </div>
+                </article>
+
+                <article class="feature" id="array_functions">
+                    <div class="feature-header">
+                        <h3 class="feature-title">New array_first() and array_last() functions</h3>
+                        <a href="https://wiki.php.net/rfc/array_first_last" class="rfc-link" target="_blank"
+                            rel="noopener">
+                            RFC
+                            <svg class="external-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15,3 21,3 21,9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="code-comparison">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">PHP &lt; 8.5</span>
+                                <button class="copy-btn" data-code="php-old-7">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre><code id="php-old-7">$php = [
+    'php-82' => ['state' => 'security', 'branch' => 'PHP-8.2'],
+    'php-83' => ['state' => 'active', 'branch' => 'PHP-8.3'],
+    'php-84' => ['state' => 'active', 'branch' => 'PHP-8.4'],
+    'php-85' => ['state' => 'upcoming', 'branch' => 'PHP-8.5'],
+];
+
+$upcomingRelease = null;
+foreach ($php as $key => $version) {
+    if ($version['state'] === 'upcoming') {
+        $upcomingRelease = $version;
+        break;
+    }
+}
+
+var_dump($upcomingRelease);</code></pre>
+                        </div>
+
+                        <div class="arrow-container">
+                            <svg class="arrow-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12,5 19,12 12,19"></polyline>
+                            </svg>
+                        </div>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">PHP 8.5</span>
+                                <span class="new-badge">New</span>
+                                <button class="copy-btn" data-code="php-new-7">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre><code id="php-new-7">$php = [
+    'php-82' => ['state' => 'security', 'branch' => 'PHP-8.2'],
+    'php-83' => ['state' => 'active', 'branch' => 'PHP-8.3'],
+    'php-84' => ['state' => 'active', 'branch' => 'PHP-8.4'],
+    'php-85' => ['state' => 'upcoming', 'branch' => 'PHP-8.5'],
+];
+
+$upcomingRelease = array_first(
+    array_filter(
+        $php,
+        static fn($version) => $version['state'] === 'upcoming'
+    )
+);
+
+var_dump($upcomingRelease);</code></pre>
+                        </div>
+                    </div>
+                </article>
+
+                <section class="additional-features">
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <h3>New Classes, Interfaces, and Functions</h3>
+                            <ul>
+                                <li>Property Promotion is now available for final</li>
+                                <li>Attributes are now available for constants</li>
+                                <li>Attribute #[\Override] now works on properties</li>
+                                <li>Attribute #[\Deprecated] available for traits</li>
+                                <li>Asymmetric Visibility for Static Properties</li>
+                                <li>New #[\DelayedTargetValidation] attribute is available</li>
+                                <li>New <a href="#other">get_error_handler()</a>, <a
+                                        href="#other">get_exception_handler()</a> functions are available</li>
+                                <li>New Closure::getCurrent method is available</li>
+                                <li>New Dom\Element::getElementsByClassName() and Dom\Element::insertAdjacentHTML()
+                                    methods are available</li>
+                                <li>New enchant_dict_remove_from_session() and enchant_dict_remove() functions are
+                                    available</li>
+                                <li>New grapheme_levenshtein() function is available</li>
+                                <li>New opcache_is_script_cached_in_file_cache() function is available</li>
+                                <li>New ReflectionConstant::getFileName(), ReflectionConstant::getExtension(),
+                                    ReflectionConstant::getExtensionName(), ReflectionConstant::getAttributes(), and
+                                    ReflectionProperty::getMangledName() methods are available</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-card">
+                            <h3>Deprecated Classes, Interfaces, and Functions</h3>
+                            <p>No deprecations or breaking changes.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Better performance, better syntax, improved type safety.</h2>
+                    <a href="https://www.php.net/downloads.php" class="cta-button">Upgrade to PHP 8.5 now</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="resources">
+            <div class="container">
+                <div class="resources-content">
+                    <p>For source downloads of PHP 8.5 please visit the <a
+                            href="https://www.php.net/downloads.php">downloads</a> page. Windows binaries can be found
+                        on the <a href="https://windows.php.net/download">PHP for Windows site</a>. The list of changes
+                        is recorded in the <a
+                            href="https://web-php-pr-1454.preview.thephp.foundation/ChangeLog-8.php#PHP_8_5">ChangeLog</a>.
+                    </p>
+                    <p>The <a
+                            href="https://web-php-pr-1454.preview.thephp.foundation/manual/en/migration85.php">migration
+                            guide</a> is available in the PHP Manual. Please consult it for a detailed list of new
+                        features and backward-incompatible changes.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 The PHP Group. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
