@@ -54,7 +54,17 @@ The design keeps the official PHP branding while introducing a modern, professio
 ## 🖥️ Live Preview
 🔗 [https://shubhamchoudharyshubh.github.io/php-8.5-entry/](https://shubhamchoudharyshubh.github.io/php-8.5-entry/)
 
-To view locally:
+
+
+Screenshots:![PHP 8 5 Release Page](https://github.com/user-attachments/assets/6bfcbd35-ac3c-47f4-8ecc-cb91b7df0da9)
+<img width="673" height="1280" alt="image" src="https://github.com/user-attachments/assets/9b447596-eb41-4208-9e5c-6b3e5dbdf5e5" />
+<img width="574" height="1096" alt="image" src="https://github.com/user-attachments/assets/b403a199-c6bb-49ac-bb64-68e5a2c69895" />
+<img width="574" height="1098" alt="image" src="https://github.com/user-attachments/assets/880c8dd2-16c3-4563-90d3-f0251f22686b" />
+<img width="1264" height="588" alt="image" src="https://github.com/user-attachments/assets/c54d28ae-d7e7-4eb0-bb24-d5d91a0385f4" />
+<img width="1280" height="607" alt="image" src="https://github.com/user-attachments/assets/285dea94-a0bf-42a6-91ff-236b18a4a1ee" />
+
+
+
 ```bash
 git clone https://github.com/ShubhamChoudharyShubh/php-8.5-entry.git
 cd php-8.5-entry
